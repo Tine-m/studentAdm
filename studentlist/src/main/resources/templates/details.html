@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Details 2</title>
+    <link th:href="@{myStyleSheet.css}" href="../static/myStyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div th:replace="header">...</div>
+<div class="container">
+    <h1>Details</h1>
+    <p th:text="'ID: ' + ${student.studentId}"/>
+    <p th:text="'First Name: ' + ${student.firstName}"/>
+    <p th:text="'LastName: ' + ${student.lastName}"/>
+    <p th:text="${#temporals.format(student.enrollmentDate, 'd MMMM yyyy')}"/>
+    <p th:text="'CPR: ' + ${student.cpr}"/>
+</div>
+</body>
+</html>

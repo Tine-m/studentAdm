@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{myStyleSheet.css}" href="../static/myStyleSheet.css" rel="stylesheet" type="text/css">
+    <title>KEA</title>
+</head>
+<div th:replace="header">...</div>
+<body>
+<div class="container">
+    <h1>Students</h1>
+    <p>Enrolled Students at KEA</p>
+    <p><a href="/create" class="btn btn-create">Create</a></p>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Enrollment Date</th>
+        <th>Cpr</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student: ${students}">
+        <!--/*@thymesVar id="studentId" type=""*/-->
+        <td th:text="${student.studentId}"></td>
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${#temporals.format(student.enrollmentDate, 'd MMMM yyyy')}"/><!-- https://www.baeldung.com/dates-in-thymeleaf -->
+        <td th:text="${student.cpr}"></td>
+        <td>
+            <a th:href="@{/details(id=${student.studentId})}" class="btn btn-detail">Details</a> <!-- http://www.thymeleaf.org/doc/articles/standardurlsyntax.html -->
+            <a th:href="@{/edit(id=${student.studentId})}" class="btn btn-ed">Edit</a>
+            <a th:href="@{/delete(id=${student.studentId})}" class="btn btn-del">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

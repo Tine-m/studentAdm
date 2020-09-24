@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Student</title>
+    <link th:href="@{myStyleSheet.css}" href="../static/myStyleSheet.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div th:replace="header">...</div>
+<div class="container">
+    <h1>Update </h1>
+    <form action="#" th:action="@{/edit}" method="post">
+        <input type="hidden" th:field="${student.studentId}"/>
+        <p>First Name: <input type="text" th:field="${student.firstName}"/></p>
+        <p>Last Name: <input type="text" th:field="${student.lastName}"/></p>
+        <p>Enrollment date: <input type="date" th:field="${student.enrollmentDate}"/></p>
+        <p>cpr: <input type="text" th:field="${student.cpr}"/></p>
+        <input type="submit" value="Update" class="btn btn-create"/>
+    </form>
+</div>
+</body>
+</html>
