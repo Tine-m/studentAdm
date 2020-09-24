@@ -1,1 +1,2 @@
 # studentAdm
+Demonstrates allround features.
